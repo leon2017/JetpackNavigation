@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/main_fragment">
+
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.wangjun.app.jetpacktodolist.ui.main.MainFragment"
+        android:label="@string/main_fragment_title"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_main_fragment_to_settings_activity"
+            app:destination="@id/settings_activity"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_main_fragment_to_main2_fragment"
+            app:destination="@id/main2_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/main2_fragment"
+        android:name="com.wangjun.app.jetpacktodolist.ui.main.Main2Fragment"
+        android:label="@string/main2_fragment_title"
+        tools:layout="@layout/main2_fragment">
+
+        <argument android:name="testArg"
+            app:type="string"
+            android:defaultValue="Hello Leon"
+            />
+
+        <argument
+            android:name="testArg2"
+            android:defaultValue="大王叫我来巡山"
+            app:type="string" />
+
+    </fragment>
+
+
+    <activity
+        android:id="@+id/settings_activity"
+        android:name="com.wangjun.app.jetpacktodolist.ui.SettingActivity"
+        android:label="@string/activity_settings"
+        tools:layout="@layout/setting_activity" >
+
+        <!--深层链接-->
+        <deepLink app:uri="www.leonwang.com/hello/{testArg}" />
+
+    </activity>
+
+</navigation>
